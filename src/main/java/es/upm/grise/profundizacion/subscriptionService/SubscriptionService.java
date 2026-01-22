@@ -58,6 +58,7 @@ public class SubscriptionService {
 	}
 
 
+
 	public Collection <User> getSubscribers() {
 		
 		return subscribers;
