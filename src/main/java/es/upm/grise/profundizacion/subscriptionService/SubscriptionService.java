@@ -38,10 +38,26 @@ public class SubscriptionService {
 		subscribers.add(user);
 
 	}
-	
-	/*
-	 * Other setters & getters
-	 */
+
+	public void removeSubscriber(User user) {
+		
+		subscribers.remove(user);
+		
+	}
+
+	public void sendMessage(int messageId) {
+		for(User user : subscribers) {
+			if(user == null || user.getDelivery() == Delivery.DO_NOT_DELIVER) {
+				continue;
+			}
+			String email = user.getEmail();
+			if(email != null && !email.isEmpty()) {
+				System.out.println("Sending message " + messageId + " to " + email);
+			}
+		}
+	}
+
+
 	public Collection <User> getSubscribers() {
 		
 		return subscribers;
